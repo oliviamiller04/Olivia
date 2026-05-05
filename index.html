@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Olivia Miller</title>
+  <meta name="description" content="Olivia Miller | Official Page" />
+
+  <style>
+    :root{
+      --gold:#e8c96a;
+      --gold-dark:#b9922d;
+      --white:#fff7e8;
+      --soft:rgba(255,247,232,.78);
+      --glass:rgba(0,0,0,.34);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html,body{
+      margin:0;
+      min-height:100%;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:#000;
+      color:var(--white);
+    }
+
+    body{
+      display:grid;
+      place-items:center;
+      padding:0;
+    }
+
+    .page{
+      position:relative;
+      width:100%;
+      min-height:100vh;
+      overflow:hidden;
+      isolation:isolate;
+      background:#000;
+    }
+
+    .bg{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.18) 0%, rgba(0,0,0,.22) 34%, rgba(0,0,0,.48) 100%),
+        linear-gradient(to top, rgba(0,0,0,.64) 0%, transparent 50%),
+        url("fondo.jpg") center center / cover no-repeat;
+      z-index:0;
+      transform:scale(1.015);
+    }
+
+    .bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 42%, transparent 0%, rgba(0,0,0,.10) 38%, rgba(0,0,0,.58) 100%);
+      pointer-events:none;
+    }
+
+    .content{
+      position:relative;
+      z-index:2;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:32px 22px;
+    }
+
+    .top{
+      position:absolute;
+      top:42px;
+      left:20px;
+      right:20px;
+      text-align:center;
+    }
+
+    .name{
+      margin:0;
+      font-size:clamp(2.1rem, 9vw, 3.25rem);
+      line-height:1;
+      font-weight:750;
+      letter-spacing:-.04em;
+      color:#fff2c7;
+      text-shadow:0 5px 24px rgba(0,0,0,.54);
+    }
+
+    .tag{
+      margin:10px 0 0;
+      font-size:.78rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(255,247,232,.74);
+      text-shadow:0 3px 14px rgba(0,0,0,.45);
+    }
+
+    .center-card{
+      width:100%;
+      max-width:355px;
+      padding:18px;
+      border-radius:30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.015)),
+        var(--glass);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      box-shadow:0 22px 70px rgba(0,0,0,.38);
+    }
+
+    .small-text{
+      margin:0 0 16px;
+      font-size:1rem;
+      line-height:1.42;
+      color:var(--soft);
+      text-shadow:0 2px 10px rgba(0,0,0,.35);
+    }
+
+    .button{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      min-height:62px;
+      padding:16px 22px;
+      border-radius:999px;
+      text-decoration:none;
+      color:#0c0c0c;
+      font-size:1.05rem;
+      font-weight:800;
+      letter-spacing:.01em;
+      background:linear-gradient(135deg, var(--gold-dark), #ffe58f 48%, var(--gold));
+      box-shadow:
+        0 18px 44px rgba(0,0,0,.35),
+        0 0 26px rgba(232,201,106,.18),
+        inset 0 1px 0 rgba(255,255,255,.48);
+      overflow:hidden;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+
+    .button::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.42), transparent);
+      transform:translateX(-130%);
+      animation:shine 3s ease-in-out infinite;
+    }
+
+    .button span{
+      position:relative;
+      z-index:1;
+    }
+
+    .button:hover,
+    .button:focus-visible{
+      transform:translateY(-2px);
+      box-shadow:
+        0 24px 54px rgba(0,0,0,.44),
+        0 0 34px rgba(232,201,106,.24),
+        inset 0 1px 0 rgba(255,255,255,.56);
+      outline:none;
+    }
+
+    .hint{
+      margin-top:13px;
+      font-size:.78rem;
+      color:rgba(255,247,232,.65);
+      text-shadow:0 2px 10px rgba(0,0,0,.45);
+    }
+
+    .footer{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:24px;
+      text-align:center;
+      font-size:.73rem;
+      letter-spacing:.08em;
+      color:rgba(255,247,232,.52);
+      z-index:2;
+      text-shadow:0 2px 12px rgba(0,0,0,.52);
+    }
+
+    @keyframes shine{
+      0%,58%{transform:translateX(-130%)}
+      100%{transform:translateX(130%)}
+    }
+
+    @media (min-width:520px){
+      body{
+        padding:18px;
+        background:
+          radial-gradient(circle at top, #17120a 0%, #050505 45%, #000 100%);
+      }
+
+      .page{
+        width:min(94vw,430px);
+        min-height:min(92vh,820px);
+        border-radius:42px;
+        box-shadow:
+          0 34px 95px rgba(0,0,0,.72),
+          inset 0 0 0 1px rgba(255,255,255,.06);
+      }
+
+      .content{
+        min-height:min(92vh,820px);
+      }
+    }
+
+    @media (max-width:380px){
+      .center-card{
+        padding:15px;
+        border-radius:26px;
+      }
+
+      .button{
+        min-height:58px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="bg"></div>
+
+    <section class="content">
+      <header class="top">
+        <h1 class="name">Olivia Miller</h1>
+        <p class="tag">Official Private Page</p>
+      </header>
+
+      <div class="center-card">
+        <p class="small-text">Come see what I don’t post anywhere else.</p>
+
+        <a class="button" href="https://onlyfans.com/olivia.miller1" target="_blank" rel="noopener noreferrer">
+          <span>Enter My OnlyFans</span>
+        </a>
+
+        <div class="hint">18+ only • private access</div>
+      </div>
+    </section>
+
+    <div class="footer">© Olivia Miller</div>
+  </main>
+</body>
+</html>
